@@ -7,6 +7,7 @@ public class PlayerController1 : MonoBehaviour {
 	
 	public Rigidbody rb;
 	public int moveSpeed = 1;
+
 	void Start () {
 
 		
@@ -19,7 +20,11 @@ public class PlayerController1 : MonoBehaviour {
 		float horizMove = Input.GetAxis("Horizontal");
 		float vertiMove =  Input.GetAxis("Vertical");
 
-		Vector3 move = new Vector3(horizMove * moveSpeed * Time.deltaTime,0.0f, vertiMove * moveSpeed * Time.deltaTime);
+		if (input.GetKeyDown(KeyCode.Space)){
+			rb.AddForce(new Vector3(0,10,0), ForceMode.Impulse);
+		}
+
+		Vector3 move = new Vector3(horizMove * moveSpeed * Time.deltaTime, 0.0f, vertiMove * moveSpeed * Time.deltaTime);
 		rb.AddForce(move);
 
 	}
