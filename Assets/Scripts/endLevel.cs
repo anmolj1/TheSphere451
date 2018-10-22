@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class endLevel : MonoBehaviour {
 
-void OnCollisionEnter2D(Collision2D collision2D)
+void OnCollisionEnter(Collision collision)
     {
-        if (collision2D.transform.name == "Player"){
+        if (collision.transform.name == "Player"){
+        	print("touching");
         
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenu");
 
     }
 
