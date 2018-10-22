@@ -8,19 +8,20 @@ public class PlayerController1 : MonoBehaviour {
 	public Rigidbody rb;
 	public int moveSpeed = 100;
 
+
+
 	void Start () {
 
 		
 	}
 
 
-	
 	// Update is called once per frame
 	void Update () {
 		float horizMove = Input.GetAxis("Horizontal");
 		float vertiMove =  Input.GetAxis("Vertical");
 
-		if (Input.GetKeyDown(KeyCode.Space)){
+		if ((Input.GetKeyDown(KeyCode.Space)) && rb.position.y < 1f){
 			rb.AddForce(new Vector3(0,10,0), ForceMode.Impulse);
 		}
 
