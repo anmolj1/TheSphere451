@@ -8,7 +8,6 @@ public class endLevel : MonoBehaviour {
 void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.name == "Player"){
-        	print("touching");
         
         SceneManager.LoadScene("MainMenu");
 
