@@ -6,7 +6,9 @@ public class PlayerController1 : MonoBehaviour {
 	// Use this for initialization
 	
 	public Rigidbody rb;
+
 	public int moveSpeed = 100;
+	bool inAir = false;
 
 
 
@@ -21,12 +23,22 @@ public class PlayerController1 : MonoBehaviour {
 		float horizMove = Input.GetAxis("Horizontal");
 		float vertiMove =  Input.GetAxis("Vertical");
 
-		if ((Input.GetKeyDown(KeyCode.Space)) && rb.position.y < 1f){
+		if (rb.velocity.y < 0){
+			inAir = true;
+		}else{
+			inAir = false;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space)){
 			rb.AddForce(new Vector3(0,10,0), ForceMode.Impulse);
 		}
+
 
 		Vector3 move = new Vector3(horizMove * moveSpeed * Time.deltaTime, 0.0f, vertiMove * moveSpeed * Time.deltaTime);
 		rb.AddForce(move);
 
 	}
+
+
+
 }
